@@ -18,16 +18,16 @@ const App = () => {
   const Submit = (e) => {
     e.preventDefault();
 
-    let Add;
+    let updateTodo;
     if (edit) {
-      Add = [...User.filter((u) => u.id !== input.id), input];
+      updateTodo = [...User.filter((u) => u.id !== input.id), input];
       setedit(false);
     } else {
       const newUser = { ...input, id: uuidv4() };
-      Add = [...User, newUser];
+      updateTodo = [...User, newUser];
     }
-    setUser(Add);
-    localStorage.setItem("User", JSON.stringify(Add));
+    setUser(updateTodo);
+    localStorage.setItem("User", JSON.stringify(updateTodo));
 
     window.location.reload();
   };
