@@ -1,0 +1,34 @@
+.slick-dots {
+  position: absolute;
+  bottom: 10px; /* adjust up/down */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex !important;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.slick-dots li button:before {
+  font-size: 12px; /* optional, adjust size */
+  color: white !important;
+  opacity: 0.75; /* slightly dim */
+}
+.slick-dots li.slick-active button:before {
+  font-size: 14px;          /* same size as above */
+  color: red !important;    /* inner dot color */
+  opacity: 1;
+  border: 3px solid white;  /* border around */
+  border-radius: 100%;       /* circle */
+  box-sizing: border-box;   /* keep border inside */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3.5px 0 0 0;
+             /* match border + dot */
+
+ 
+ 
+
+ 
+}
