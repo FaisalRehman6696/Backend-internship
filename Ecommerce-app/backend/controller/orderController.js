@@ -2,7 +2,7 @@ import AddressModel from "../models/addressModel.js";
 import orderModel from "../models/orderModel.js";
 import { errorResponse, successResponse } from "../utils/apiResponse.js";
 import userModel from "../models/userModel.js";
-import { SendMailOrder } from "../mailer/appmailer.js";
+import { SendMailOrder } from "../mailer/appMailer.js";
 import { SendMailProcessOrder } from "../mailer/orderProcessing.js";
 import { SendMailShippedOrder } from "../mailer/orderShipped.js";
 import { SendMailDeliveredOrder } from "../mailer/orderDelivered.js";
