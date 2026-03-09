@@ -24,7 +24,7 @@ const Carousalsection = () => {
   const handleSubmit = useCallback(async () => {
     try {
       const res = await getCategory();
-      console.log(res.data);
+     
       setCategory(res.data);
     } catch (error) {
       console.log(error);

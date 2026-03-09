@@ -54,7 +54,7 @@ export const GetProducts = async (req, res) => {
     });
     return successResponse(res, "Product get suucessfuly", result);
   } catch (error) {
-    console.log(error);
+    
     return errorResponse(res, 500, "internal server error");
   }
 };
@@ -81,7 +81,7 @@ export const getProductsById = async (req, res) => {
     const result = { product, average };
     return successResponse(res, "Product get suucessfuly", result);
   } catch (error) {
-    console.log(error);
+    
     return errorResponse(res, 500, "internal server error");
   }
 };
@@ -111,7 +111,7 @@ export const getProductByCategory = async (req, res) => {
     });
     return successResponse(res, 200, result);
   } catch (error) {
-    console.log(error);
+    
     return errorResponse(res, 500, "internal server error");
   }
 };

@@ -3,7 +3,7 @@ import api from "../utils/apiRequest";
 
 export const fetchProducts = async () => {
   try {
-    const res = await axios.get("/getproducts");
+    const res = await axios.get("http://localhost:8000/getproducts");
     return res.data;
   } catch (error) {
     throw error;

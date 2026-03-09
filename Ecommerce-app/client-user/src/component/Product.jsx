@@ -43,10 +43,10 @@ const Product = () => {
   const productList = async () => {
     try {
       const res = await fetchProducts();
-      console.log(res.data);
+     
       setProducts(res.data);
     } catch (error) {
-      console.log("error", error);
+     
     }
   };
   useEffect(() => {

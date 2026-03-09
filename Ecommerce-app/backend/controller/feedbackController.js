@@ -6,7 +6,7 @@ export const productFeedback = async (req, res) => {
   try {
     const userId = req.user.id;
     const user = await orderModel.findOne({ userId });
-    console.log(user);
+    
     if (!user) {
       return errorResponse(res, 400, "Please first Order Product");
     }
@@ -30,7 +30,7 @@ export const productFeedback = async (req, res) => {
     await productData.save();
     return successResponse(res, "Feedback Save Sucessfuly");
   } catch (error) {
-    console.log(error);
+    
     return errorResponse(res, 500, "internal server error");
   }
 };

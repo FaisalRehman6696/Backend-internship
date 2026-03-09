@@ -82,7 +82,7 @@ export const createOrder = async (req, res) => {
       });
     }
   } catch (error) {
-    console.log({ error });
+    
     return errorResponse(res, 500, "internal Server Error");
   }
 };
@@ -107,21 +107,21 @@ export const verifyPayment = async (req, res) => {
 
     return successResponse(res, "sucessfully verified");
   } catch (error) {
-    console.log(error);
+   
     return errorResponse(res, 500, "Internal server error");
   }
 };
 export const refundPaymentRequest = async (req, res) => {
   try {
-    console.log("rout hit");
+    
     const userId = req.user.id;
     const { selectorderid, reason } = req.body;
-    console.log(req.body);
+   
     if (!selectorderid || !reason) {
       return errorResponse(res, 400, "fields are required");
     }
     const payment = await paymentModel.findOne({ orderId: selectorderid });
-    console.log(payment);
+     
     const paymentRecord = new refundModel({
       userId,
       orderId: selectorderid,
@@ -131,19 +131,19 @@ export const refundPaymentRequest = async (req, res) => {
       refundStatus: "processing",
     });
     await paymentRecord.save();
-    console.log(paymentRecord);
+     
     return successResponse(res, "requested sucessful", paymentRecord);
   } catch (error) {
-    console.log(error);
+     (error);
     return errorResponse(res, 500, "internal server error");
   }
 };
 export const fetchRefundStatus = async (req, res) => {
   try {
-    console.log("rout hit");
+    
     const { orderId } = req.params;
     const payment = await refundModel.findOne({ orderId });
-    console.log(payment);
+   
     return successResponse(res, "sucessful", payment);
   } catch (error) {
     return errorResponse(res, 500, "internal server error");
@@ -179,7 +179,7 @@ export const getOrderById = async (req, res) => {
     });
     return successResponse(res, "Order get successfully", order);
   } catch (error) {
-    console.log({ error });
+     ({ error });
     return errorResponse(res, 500, "internal server error");
   }
 };
@@ -233,7 +233,7 @@ export const updateStatus = async (req, res) => {
 
     return successResponse(res, "Order update successfully", order);
   } catch (error) {
-    console.log({ error });
+     ({ error });
     return errorResponse(res, 500, "internal server error");
   }
 };

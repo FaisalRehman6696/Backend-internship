@@ -38,7 +38,7 @@ const PaymentForm = () => {
         },
       },
     });
-    console.log(result);
+    
     if (result.error) {
       alert(result.error.message);
       setLoading(false);
@@ -56,7 +56,7 @@ const PaymentForm = () => {
           }
         }
       } catch (error) {
-        console.log(error);
+        
       }
     }
   };

@@ -3,7 +3,7 @@ import api from "../utils/apiRequest";
 
 export const handleSignUp = async (input) => {
   try {
-    const res = await axios.post(`/signup`, input);
+    const res = await axios.post(`http://localhost:8000/signup`, input);
 
     return res.data;
   } catch (error) {
@@ -13,7 +13,7 @@ export const handleSignUp = async (input) => {
 
 export const handleLogin = async (input) => {
   try {
-    const res = await axios.post(`/user-login`, input);
+    const res = await axios.post(`http://localhost:8000/user-login`, input);
 
     return res.data;
   } catch (error) {
@@ -22,7 +22,7 @@ export const handleLogin = async (input) => {
 };
 export const handleFrogotPass = async (email) => {
   try {
-    const res = await axios.post(`/verifyemail`, {
+    const res = await axios.post(`http://localhost:8000/verifyemail`, {
       email,
     });
 
@@ -34,7 +34,7 @@ export const handleFrogotPass = async (email) => {
 export const handleCode = async (email, code) => {
   try {
     console.log(code);
-    const res = await axios.post(`/verifycode`, {
+    const res = await axios.post(`http://localhost:8000/verifycode`, {
       email,
       code,
     });
@@ -46,7 +46,7 @@ export const handleCode = async (email, code) => {
 
 export const handleUpdatePassword = async (email, password) => {
   try {
-    const res = await axios.post(`/updatepassword`, {
+    const res = await axios.post(`http://localhost:8000/updatepassword`, {
       email,
       password,
     });

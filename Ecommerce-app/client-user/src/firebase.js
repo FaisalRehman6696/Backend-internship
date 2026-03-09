@@ -3,6 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { GoogleAuthProvider } from "firebase/auth";
 import { signInWithPopup } from "firebase/auth";
+import { toast } from "react-toastify";
 
 var firebaseConfig = {
   apiKey: "AIzaSyCvzCViD_Ch9qyo5jPFPEDcrex-aAvwdFQ",
@@ -17,6 +18,7 @@ var firebaseConfig = {
 // Initialize Firebase
 const hanldeGoogleLogin = async () => {
   try {
+    // const Provider = new GoogleAuthProvider();
     Provider.addScope("email");
     const result = await signInWithPopup(auth, Provider);
     const user = result.user;
@@ -27,10 +29,8 @@ const hanldeGoogleLogin = async () => {
       email: user.providerData[0].email,
       photo: user.photoURL,
     });
-    
-    alert(res.data.msg);
-
-   
+    toast.success(res.data.msg);
+    return res.data;
   } catch (error) {
     console.log(error);
   }

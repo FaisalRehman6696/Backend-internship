@@ -16,10 +16,10 @@ const ViewAllProducts = () => {
   const getProducts = async () => {
     try {
       const res = await fetchProducts();
-      console.log(res.data);
+      
       setProducts(res.data);
     } catch (error) {
-      console.log("error", error);
+      console.log( error);
     }
   };
   useEffect(() => {

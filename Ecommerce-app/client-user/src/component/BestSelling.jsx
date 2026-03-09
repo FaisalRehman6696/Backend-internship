@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 
 const BestSelling = () => {
   const [products, setProducts] = useState([]);
-  console.log(products);
+  
   const FetchProduct = async () => {
     try {
       const res = await fetchProducts();

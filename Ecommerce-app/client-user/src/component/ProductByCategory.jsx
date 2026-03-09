@@ -14,9 +14,9 @@ const ProductByCategory = () => {
     try {
       const res = await fetchProductByCategory(_id);
       setProduct(res.data);
-      console.log(res.data);
+      
     } catch (error) {
-      console.log(error);
+      
     }
   };
   useEffect(() => {

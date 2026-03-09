@@ -12,10 +12,10 @@ const Myaccount = () => {
   const handleUser = async () => {
     try {
       const res = await getUser();
-      console.log(res.data);
+      
       setUser(res.data);
     } catch (error) {
-      console.log(error);
+    
     }
   };
   useEffect(() => {

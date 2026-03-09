@@ -19,13 +19,13 @@ const ProfileOrders = () => {
   const handleOrders = async () => {
     try {
       const res = await getOrderById();
-      console.log(res.data);
+      
       setOrders(res.data);
       res.data.map(async (order) => {
         if (order.status === "Delivered") {
           const orderId = order._id;
           const res = await fetchRefundStatus(orderId);
-          console.log(res.data);
+         
           setRefundStatusMap((preStatusMap) => ({
             ...preStatusMap,
             [orderId]: res.data,
@@ -52,14 +52,14 @@ const ProfileOrders = () => {
   const handleRefund = async () => {
     try {
       const res = await refundPayment(selectorderid, reason);
-      console.log(res.data);
+      
       // setUpdateRefund(res.data.refundStatus);
       toast.success(res.message);
       setOpenModal(false);
       setReason("");
       setSelectOrderId(null);
     } catch (error) {
-      console.log(error);
+     
       toast.error(error.response?.data.message);
     }
   };

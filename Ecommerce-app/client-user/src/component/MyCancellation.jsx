@@ -11,10 +11,10 @@ const MyCancellation = ({ user }) => {
   const cancelOrder = async () => {
     try {
       const res = await getCancelOrder();
-      console.log(res.data);
+     
       setOrders(res.data);
     } catch (error) {
-      console.log(error);
+      
     }
   };
   useEffect(() => {

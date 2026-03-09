@@ -12,6 +12,19 @@ const Signup = () => {
     email: "",
     password: "",
   });
+  const handleGoogleSignup = async () => {
+    try {
+      const res = await hanldeGoogleLogin();
+
+      if (res.success) {
+        sessionStorage.setItem("token", res.token);
+        toast.success(res.msg);
+        navigate("/");
+      }
+    } catch (error) {
+      toast.error("Google login failed");
+    }
+  };
   const handleSubmit = async () => {
     try {
       const res = await handleSignUp(input);
@@ -86,7 +99,7 @@ const Signup = () => {
                 Create Account
               </button>
               <button
-                onClick={() => hanldeGoogleLogin()}
+                onClick={handleGoogleSignup}
                 className="w-full h-14 border cursor-pointer border-black/40 flex items-center justify-center gap-3 rounded-[4px] mt-4 font-popinns font-medium text-[16px]"
               >
                 <img src="/google.png" alt="google" className="w-6 h-6" />
