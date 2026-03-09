@@ -9,6 +9,7 @@ import { fetchProducts } from "../services/productServices";
 import { handleToken } from "../utils/verifyRequest";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+const API = import.meta.env.VITE_API_URL;
 
 const ViewAllProducts = () => {
   const [products, setProducts] = useState([]);
@@ -75,7 +76,7 @@ const ViewAllProducts = () => {
                     <div className="bg-[#F5F5F5]">
                       <div className="cursor-pointer" onClick={()=>checkToken(_id)}>
                         <img
-                          src={`http://localhost:8000/${imageUrl}`}
+                          src={`${API}/${imageUrl}`}
                           alt="w-full object-contain "
                         />
                       </div>

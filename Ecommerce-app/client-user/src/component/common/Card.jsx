@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import { AddCard } from "../../counter/cardSlice";
 import { toast } from "react-toastify";
 import { handleToken } from "../../utils/verifyRequest";
-
+const API = import.meta.env.VITE_API_URL;
 const Card = ({ items }) => {
   const { _id, name, imageUrl, price, average, feedbackId } = items;
   const navigate = useNavigate();
@@ -62,7 +62,7 @@ const Card = ({ items }) => {
 
       <div className="bg-[#F5F5F5] rounded-t-sm" onClick={checkToken}>
         <img
-          src={`http://localhost:8000/${imageUrl}`}
+          src={`${API}/${imageUrl}`}
           alt="img"
           className="cursor-pointer"
         />

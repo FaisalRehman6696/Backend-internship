@@ -13,7 +13,7 @@ import { toast } from "react-toastify";
 import handleFeedback from "../services/feedbackService";
 const Size = ["XS", "S", "M", "XL", "L"];
 const colors = ["#DB4444", "#E07575", "#000000", "#00FF66"];
-
+const API = import.meta.env.VITE_API_URL;
 const ProductDetail = () => {
   const path = window.location.pathname.split("/").filter(Boolean);
   const navigate = useNavigate();
@@ -38,7 +38,7 @@ const ProductDetail = () => {
 
   const dispatch = useDispatch();
   const selecter = useSelector((state) =>
-    state?.card?.product.find((item) => item._id === id)
+    state?.card?.product.find((item) => item._id === id),
   );
 
   const [colorchange, setColorChange] = useState("#DB4444");
@@ -89,7 +89,7 @@ const ProductDetail = () => {
               >
                 <img
                   onClick={() => setProductImg(img)}
-                  src={`http://localhost:8000/${img}`}
+                  src={`${API}/${img}`}
                   alt="thumbnail"
                   className="w-full h-full object-contain cursor-pointer hover:opacity-80 transition-opacity"
                 />
@@ -100,7 +100,7 @@ const ProductDetail = () => {
           {/* Main Large Image */}
           <div className="w-full bg-[#F5F5F5] rounded-sm flex items-center justify-center h-[350px] sm:h-[450px] md:h-[600px]">
             <img
-              src={`http://localhost:8000/${imageUrl}`}
+              src={`${API}/${imageUrl}`}
               alt="Main product"
               className="max-h-full max-w-full object-contain p-4"
             />

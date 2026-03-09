@@ -9,7 +9,16 @@ const PORT = process.env.PORT;
 const app = express();
 
 Database();
-app.use(cors({ origin: ["http://localhost:5173", "http://localhost:5174"] }));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "http://localhost:5174",
+      "http://13.60.217.156",
+    ],
+    credentials: true,
+  }),
+);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));

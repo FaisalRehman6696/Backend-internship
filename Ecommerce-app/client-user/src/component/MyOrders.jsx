@@ -5,7 +5,7 @@ import { getOrderById } from "../services/orderServices";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { fetchRefundStatus, refundPayment } from "../services/userServices";
-
+const API = import.meta.env.VITE_API_URL;
 const ProfileOrders = () => {
   const navigate = useNavigate();
   const token = sessionStorage.getItem("token");
@@ -130,7 +130,7 @@ const ProfileOrders = () => {
                       <div className="flex items-center justify-between bg-[#F5F5F5] p-3 rounded-lg">
                         <div className="flex items-center gap-4">
                           <img
-                            src={`http://localhost:8000/${item.productId.imageUrl}`}
+                            src={`${API}/${item.productId.imageUrl}`}
                             alt={item.productId.name}
                             className="w-16 h-16 object-cover rounded-lg border border-black/30"
                           />

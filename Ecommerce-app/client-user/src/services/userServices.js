@@ -1,9 +1,9 @@
 import axios from "axios";
 import api from "../utils/apiRequest";
-
+const API = import.meta.env.VITE_API_URL;
 export const handleSignUp = async (input) => {
   try {
-    const res = await axios.post(`http://localhost:8000/signup`, input);
+    const res = await axios.post(`${API}/signup`, input);
 
     return res.data;
   } catch (error) {
@@ -13,7 +13,7 @@ export const handleSignUp = async (input) => {
 
 export const handleLogin = async (input) => {
   try {
-    const res = await axios.post(`http://localhost:8000/user-login`, input);
+    const res = await axios.post(`${API}/user-login`, input);
 
     return res.data;
   } catch (error) {
@@ -22,7 +22,7 @@ export const handleLogin = async (input) => {
 };
 export const handleFrogotPass = async (email) => {
   try {
-    const res = await axios.post(`http://localhost:8000/verifyemail`, {
+    const res = await axios.post(`${API}/verifyemail`, {
       email,
     });
 
@@ -34,7 +34,7 @@ export const handleFrogotPass = async (email) => {
 export const handleCode = async (email, code) => {
   try {
     console.log(code);
-    const res = await axios.post(`http://localhost:8000/verifycode`, {
+    const res = await axios.post(`${API}/verifycode`, {
       email,
       code,
     });
@@ -46,7 +46,7 @@ export const handleCode = async (email, code) => {
 
 export const handleUpdatePassword = async (email, password) => {
   try {
-    const res = await axios.post(`http://localhost:8000/updatepassword`, {
+    const res = await axios.post(`${API}/updatepassword`, {
       email,
       password,
     });

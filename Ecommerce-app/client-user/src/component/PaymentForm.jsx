@@ -11,6 +11,7 @@ import { toast } from "react-toastify";
 import { clearCard } from "../counter/cardSlice";
 import { useDispatch } from "react-redux";
 import { persistor } from "../app/store";
+const API = import.meta.env.VITE_API_URL;
 const PaymentForm = () => {
   const location = useLocation();
   const { clientSecret } = location.state || {};
@@ -45,7 +46,7 @@ const PaymentForm = () => {
     } else {
       try {
         if (result.paymentIntent.status === "succeeded") {
-          const res = await axios.post("http://localhost:8000/verifypayment", {
+          const res = await axios.post(`${API}/verifypayment`, {
             paymentIntentId: result.paymentIntent.id,
           });
           if (res.data.success === true) {

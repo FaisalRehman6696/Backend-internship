@@ -5,7 +5,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { fetchProductByCategory } from "../services/productServices";
 import { Eye, Heart } from "lucide-react";
 import { FaRegStar, FaStar } from "react-icons/fa";
-
+const API = import.meta.env.VITE_API_URL;
 const ProductByCategory = () => {
   const navigate = useNavigate();
   const { _id } = useParams();
@@ -53,7 +53,7 @@ const ProductByCategory = () => {
                         <div className="">
                           <Link to={`/productdetail/${_id}`}>
                             <img
-                              src={`http://localhost:8000/${imageUrl}`}
+                              src={`${API}/${imageUrl}`}
                               alt="w-full object-contain"
                             />
                           </Link>

@@ -1,9 +1,9 @@
 import axios from "axios";
 import api from "../utils/apiRequest";
-
+const API = import.meta.env.VITE_API_URL;
 export const fetchProducts = async () => {
   try {
-    const res = await axios.get("http://localhost:8000/getproducts");
+    const res = await axios.get(`${API}/getproducts`);
     return res.data;
   } catch (error) {
     throw error;

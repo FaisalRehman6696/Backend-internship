@@ -5,7 +5,7 @@ import { FaRegStar, FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { fetchProducts } from "../services/productServices";
 import { toast } from "react-toastify";
-
+const API = import.meta.env.VITE_API_URL;
 const BestSelling = () => {
   const [products, setProducts] = useState([]);
   
@@ -74,7 +74,7 @@ const BestSelling = () => {
                   <div className="bg-[#F5F5F5]">
                     <div className="">
                       <img
-                        src={`http://localhost:8000/${images}`}
+                        src={`${API}/${images}`}
                         alt="w-full object-contain"
                       />
                     </div>

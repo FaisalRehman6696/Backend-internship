@@ -76,7 +76,7 @@ const OurProducts = () => {
                   </div>
                   <div className="bg-[#F5F5F5]">
                     <div className="">
-                      <img src={`http://localhost:8000/${images}`} alt="" />
+                      <img src={`${API}/${images}`} alt="" />
                     </div>
                   </div>
 
