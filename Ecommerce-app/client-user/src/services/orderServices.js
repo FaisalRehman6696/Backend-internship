@@ -3,7 +3,7 @@ import api from "../utils/apiRequest";
 export const saveOrder = async (data) => {
   try {
    
-    const res = await api.post("http://localhost:8000/createorder", {
+    const res = await api.post(`/createorder`, {
       data,
     });
     return res.data;
@@ -13,7 +13,7 @@ export const saveOrder = async (data) => {
 };
 export const getOrderById = async () => {
   try {
-    const res = await api.get(`http://localhost:8000/getorderbyuserid`);
+    const res = await api.get(`/getorderbyuserid`);
     return res.data;
   } catch (error) {
     throw error;
@@ -21,7 +21,7 @@ export const getOrderById = async () => {
 };
 export const getCancelOrder = async () => {
   try {
-    const res = await api.get(`http://localhost:8000/getcancelorder`);
+    const res = await api.get(`/getcancelorder`);
     return res.data;
   } catch (error) {
     throw error;
@@ -29,7 +29,7 @@ export const getCancelOrder = async () => {
 };
 export const getAddress = async () => {
   try {
-    const res = await api.get(`http://localhost:8000/getaddress`);
+    const res = await api.get(`/getaddress`);
     return res.data;
   } catch (error) {
     throw error;

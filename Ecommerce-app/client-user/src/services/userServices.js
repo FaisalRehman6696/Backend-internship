@@ -3,7 +3,7 @@ import api from "../utils/apiRequest";
 
 export const handleSignUp = async (input) => {
   try {
-    const res = await axios.post("http://localhost:8000/signup", input);
+    const res = await axios.post(`/signup`, input);
 
     return res.data;
   } catch (error) {
@@ -13,7 +13,7 @@ export const handleSignUp = async (input) => {
 
 export const handleLogin = async (input) => {
   try {
-    const res = await axios.post("http://localhost:8000/user-login", input);
+    const res = await axios.post(`/user-login`, input);
 
     return res.data;
   } catch (error) {
@@ -22,7 +22,7 @@ export const handleLogin = async (input) => {
 };
 export const handleFrogotPass = async (email) => {
   try {
-    const res = await axios.post("http://localhost:8000/verifyemail", {
+    const res = await axios.post(`/verifyemail`, {
       email,
     });
 
@@ -34,7 +34,7 @@ export const handleFrogotPass = async (email) => {
 export const handleCode = async (email, code) => {
   try {
     console.log(code);
-    const res = await axios.post("http://localhost:8000/verifycode", {
+    const res = await axios.post(`/verifycode`, {
       email,
       code,
     });
@@ -46,7 +46,7 @@ export const handleCode = async (email, code) => {
 
 export const handleUpdatePassword = async (email, password) => {
   try {
-    const res = await axios.post("http://localhost:8000/updatepassword", {
+    const res = await axios.post(`/updatepassword`, {
       email,
       password,
     });
@@ -58,7 +58,7 @@ export const handleUpdatePassword = async (email, password) => {
 };
 export const getUser = async () => {
   try {
-    const res = await api.get("/getuser");
+    const res = await api.get(`/getuser`);
     return res.data;
   } catch (error) {
     throw error;
@@ -67,7 +67,7 @@ export const getUser = async () => {
 export const refundPayment = async (selectorderid, reason) => {
   try {
     console.log(selectorderid, reason);
-    const res = await api.post("/refundpayment", { selectorderid, reason });
+    const res = await api.post(`/refundpayment`, { selectorderid, reason });
     return res.data;
   } catch (error) {
     throw error;
